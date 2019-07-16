@@ -1,0 +1,71 @@
+{
+  "name": "electron-quick-start",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon --watch main.js --exec \"npm run dev\"",
+    "dev": "electron .",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "simpleMusicPlayer",
+    "dmg": {
+      "background": "build/appdmg.png",
+      "icon": "build/icon.icns",
+      "iconSize": 100,
+      "contents": [
+        {
+          "x": 380,
+          "y": 280,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 110,
+          "y": 280,
+          "type": "file"
+        }
+      ],
+      "window": {
+        "width": 500,
+        "height": 500
+      }
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis-web",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico",
+      "artifactName": "${productName}-Web-Setup-${version}.${ext}",
+      "publisherName": "Kandra Labs, Inc."
+    }
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^5.0.5",
+    "electron-builder": "^21.0.15",
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "electron-store": "^4.0.0",
+    "nodemon": "^1.19.1",
+    "uuid": "^3.3.2"
+  }
+}
